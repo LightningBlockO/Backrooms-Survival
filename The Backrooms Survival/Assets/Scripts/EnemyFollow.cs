@@ -26,6 +26,9 @@ public class EnemyFollow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("EndScreen");
+        if (other.tag == "Player")
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
     }
 }
