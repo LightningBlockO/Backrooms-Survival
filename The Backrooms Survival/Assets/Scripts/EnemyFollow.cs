@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyFollow : MonoBehaviour
 {
@@ -21,5 +22,10 @@ public class EnemyFollow : MonoBehaviour
         Vector3 pos = Vector3.MoveTowards(transform.position, target.position, speed * Time.fixedDeltaTime);
         rig.MovePosition(pos);
         transform.LookAt(target);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene("EndScreen");
     }
 }
